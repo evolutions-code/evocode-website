@@ -1,0 +1,285 @@
+<template>
+  <footer class="app-footer">
+    <div class="footer-inner container">
+      <div class="footer-top">
+        <div class="brand-block">
+          <div class="brand-row">
+            <span class="logo">
+              <svg viewBox="0 0 32 32" width="22" height="22">
+                <defs>
+                  <linearGradient id="footlogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4d7dff" />
+                    <stop offset="60%" stop-color="#8b5cf6" />
+                    <stop offset="100%" stop-color="#22d3ee" />
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#footlogo)" />
+                <path d="M11 13 L11 11 L21 11 L21 13 M11 16 L21 16 M11 19 L21 19 M11 22 L21 22" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none" />
+              </svg>
+            </span>
+            <span class="brand-name">evocode</span>
+          </div>
+          <p class="tagline">{{ t('footer.tagline') }}</p>
+          <div class="cta-row">
+            <a
+              href="https://github.com/evolutions-code/evocode-tauri/releases"
+              target="_blank"
+              rel="noopener"
+              class="cta-btn primary"
+            >
+              <DownloadOutlined />
+              <span>{{ t('nav.download') }}</span>
+            </a>
+            <a
+              href="https://github.com/evolutions-code/evocode"
+              target="_blank"
+              rel="noopener"
+              class="cta-btn"
+            >
+              <StarFilled />
+              <span>{{ t('cta.github') }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="link-cols">
+          <div class="link-col">
+            <h5>{{ t('footer.product') }}</h5>
+            <a href="#features">{{ t('footer.links.features') }}</a>
+            <a href="#workflow">{{ t('footer.links.workflow') }}</a>
+            <a href="#tech">{{ t('footer.links.technology') }}</a>
+            <a
+              href="https://github.com/evolutions-code/evocode-tauri/releases"
+              target="_blank"
+              rel="noopener"
+            >{{ t('footer.links.download') }}</a>
+          </div>
+          <div class="link-col">
+            <h5>{{ t('footer.resources') }}</h5>
+            <a href="https://github.com/evolutions-code/evocode-tauri/releases" target="_blank" rel="noopener">{{ t('footer.links.releases') }}</a>
+            <a href="https://github.com/evolutions-code/evocode-tauri/issues" target="_blank" rel="noopener">{{ t('footer.links.issues') }}</a>
+            <a href="https://github.com/evolutions-code/evocode-tauri/blob/main/README.md" target="_blank" rel="noopener">{{ t('footer.links.readme') }}</a>
+          </div>
+          <div class="link-col contact-col">
+            <h5>{{ t('footer.contact') }}</h5>
+            <a href="mailto:zhuxiujia@qq.com" class="email-link">
+              <MailOutlined />
+              <span class="mono">zhuxiujia@qq.com</span>
+            </a>
+            <a href="https://github.com/evolutions-code" target="_blank" rel="noopener" class="gh-link">
+              <GithubOutlined />
+              <span>{{ t('footer.links.org') }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="copy">© 2025–{{ year }} evolutions-code. {{ t('footer.copyright') }}</span>
+        <div class="meta">
+          <span class="status-dot" />
+          <span>{{ t('footer.status') }}</span>
+          <span class="sep">·</span>
+          <span>v0.1.25</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { DownloadOutlined, StarFilled, MailOutlined, GithubOutlined } from '@ant-design/icons-vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const year = computed(() => new Date().getFullYear())
+</script>
+
+<style scoped>
+.app-footer {
+  margin-top: 120px;
+  padding: 72px 0 32px;
+  position: relative;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, transparent 0%, rgba(77, 125, 255, 0.04) 100%);
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 48px;
+}
+.brand-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.logo {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #4d7dff, #8b5cf6);
+  box-shadow: var(--shadow-glow);
+}
+.brand-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+.tagline {
+  color: var(--text-3);
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 38ch;
+  margin: 0 0 22px;
+}
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-1);
+  font-size: 13px;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.cta-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+}
+.cta-btn.primary {
+  background: linear-gradient(135deg, #4d7dff, #8b5cf6);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 22px rgba(77, 125, 255, 0.35);
+}
+.cta-btn.primary:hover {
+  box-shadow: 0 10px 32px rgba(77, 125, 255, 0.5);
+  color: #fff;
+}
+
+.link-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.link-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.link-col h5 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.link-col a {
+  font-size: 13.5px;
+  color: var(--text-2);
+  transition: color 0.2s ease;
+}
+.link-col a:hover {
+  color: var(--text-1);
+}
+
+.contact-col {
+  gap: 10px;
+}
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(77, 125, 255, 0.12), rgba(139, 92, 246, 0.08));
+  border: 1px solid rgba(77, 125, 255, 0.28);
+  color: var(--text-1) !important;
+  font-size: 13px;
+  font-weight: 500;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  width: max-content;
+  max-width: 100%;
+}
+.email-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(77, 125, 255, 0.5);
+  background: linear-gradient(135deg, rgba(77, 125, 255, 0.18), rgba(139, 92, 246, 0.12));
+  color: var(--text-1) !important;
+}
+.email-link .anticon {
+  color: var(--brand-300);
+  font-size: 14px;
+}
+.email-link .mono {
+  font-size: 13px;
+  color: var(--text-1);
+  word-break: break-all;
+}
+.gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 4px 0;
+}
+.gh-link .anticon {
+  color: var(--text-3);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-4);
+  font-size: 12.5px;
+}
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 8px var(--ok);
+  animation: glow 2s ease-in-out infinite;
+}
+.sep {
+  color: var(--text-4);
+}
+@media (max-width: 860px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .link-cols {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+</style>
