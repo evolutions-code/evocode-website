@@ -11,7 +11,7 @@ export default {
     line1: 'Your AI code assistant,',
     line2: 'running entirely on your machine.',
     lede:
-      'evocode is a local bridge that wires OpenAI, Anthropic, Gemini and any compatible provider into your favourite editor — with zero lock-in and millisecond latency.',
+      'evocode is a local bridge that wires OpenAI, Anthropic and any compatible provider into your favourite editor — with zero lock-in and millisecond latency.',
     ctaDownload: 'Download for desktop',
     ctaGithub: 'View on GitHub',
     previewStatus: 'running · 17761',

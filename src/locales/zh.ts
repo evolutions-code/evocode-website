@@ -10,7 +10,7 @@ export default {
     pill: 'v0.1.25 — 现已支持流式工具调用',
     line1: '你的 AI 代码助手，',
     line2: '完全运行在你的电脑上。',
-    lede: 'evocode 是一个本地桥接服务，把 OpenAI、Anthropic、Gemini 以及任何兼容协议接入你常用的编辑器 —— 没有锁定，毫秒级延迟。',
+    lede: 'evocode 是一个本地桥接服务，把 OpenAI、Anthropic 以及任何兼容协议的LLM大模型接入你常用的编辑器 —— 没有锁定，毫秒级延迟。',
     ctaDownload: '下载桌面端',
     ctaGithub: '前往 GitHub',
     previewStatus: '运行中 · 17761',
