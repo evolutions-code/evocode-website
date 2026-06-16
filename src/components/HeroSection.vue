@@ -43,7 +43,7 @@
             <path d="M3 5.09l7.35-.99v7.07H3V5.09zm7.35 14.81l-7.35-1V12.1h7.35v7.8zM12.7 4l8.3-1.18v8.19h-8.3V4zm8.3 17.18L12.7 20v-7.08h8.3v8.26z"/>
           </svg>
           <span>{{ t('download.windows') }}</span>
-          <small class="badge">.exe</small>
+          <small class="badge">.msi</small>
         </a>
       </div>
     </div>
@@ -188,9 +188,9 @@ const GITHUB_RELEASES = 'https://github.com/evolutions-code/evocode-tauri/releas
 const macHref = computed(() => urls.value.macDmg || GITHUB_RELEASES)
 const macTarget = computed(() => urls.value.macDmg ? '_self' : '_blank')
 const macRel = computed(() => urls.value.macDmg ? '' : 'noopener')
-const winHref = computed(() => urls.value.winExe || urls.value.winMsi || GITHUB_RELEASES)
-const winTarget = computed(() => (urls.value.winExe || urls.value.winMsi) ? '_self' : '_blank')
-const winRel = computed(() => (urls.value.winExe || urls.value.winMsi) ? '' : 'noopener')
+const winHref = computed(() => urls.value.winMsi || urls.value.winExe || GITHUB_RELEASES)
+const winTarget = computed(() => (urls.value.winMsi || urls.value.winExe) ? '_self' : '_blank')
+const winRel = computed(() => (urls.value.winMsi || urls.value.winExe) ? '' : 'noopener')
 
 
 const reveal1 = ref<HTMLElement | null>(null)

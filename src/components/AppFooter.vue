@@ -106,10 +106,11 @@ const { urls } = useDownload()
 const downloadUrl = computed(() => {
   if (os.value === 'mac' && urls.value.macDmg) return urls.value.macDmg
   if (os.value === 'windows') {
-    if (urls.value.winExe) return urls.value.winExe
     if (urls.value.winMsi) return urls.value.winMsi
+    if (urls.value.winExe) return urls.value.winExe
   }
   if (urls.value.macDmg) return urls.value.macDmg
+  if (urls.value.winMsi) return urls.value.winMsi
   if (urls.value.winExe) return urls.value.winExe
   return ''
 })
