@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <header class="app-nav" :class="{ scrolled }">
     <div class="nav-inner">
       <router-link to="/" class="brand" @click="closeMenu">
@@ -46,10 +46,6 @@
           <GithubOutlined />
           <span>{{ t('nav.github') }}</span>
         </a>
-        <a href="https://github.com/evolutions-code/evocode-tauri/releases" target="_blank" rel="noopener" class="primary-btn">
-          <span>{{ t('nav.download') }}</span>
-          <ArrowRightOutlined />
-        </a>
         <button
           class="menu-toggle"
           :class="{ open: menuOpen }"
@@ -65,7 +61,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-import { GithubOutlined, ArrowRightOutlined, GlobalOutlined } from '@ant-design/icons-vue'
+import { GithubOutlined, GlobalOutlined } from '@ant-design/icons-vue'
 import { useLocale } from '@/composables/useLocale'
 
 const { t, toggle } = useLocale()

@@ -157,6 +157,7 @@ export default {
     arch: 'Apple Silicon / Intel',
     format: '.dmg',
     winFormat: '.exe / .msi',
+    latest: 'Latest version',
     linuxFormat: '.AppImage / .deb',
     notes: 'System requirements',
     reqMac: 'macOS 11 Big Sur or later',

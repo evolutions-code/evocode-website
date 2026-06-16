@@ -1,4 +1,4 @@
-export default {
+﻿export default {
   nav: {
     features: '功能特性',
     workflow: '工作流',
@@ -8,7 +8,7 @@ export default {
   },
   hero: {
     pill: 'v0.1.25 — 现已支持流式工具调用',
-    line1: '你的 AI 代码助手，',
+    line1: 'AI 协议转换桥',
     line2: '完全运行在你的电脑上。',
     lede: 'evocode 是一个本地桥接服务，把 OpenAI、Anthropic 以及任何兼容协议的LLM大模型接入你常用的编辑器 —— 没有锁定，毫秒级延迟。',
     ctaDownload: '下载桌面端',
@@ -145,6 +145,7 @@ export default {
     arch: 'Apple Silicon / Intel',
     format: '.dmg',
     winFormat: '.exe / .msi',
+    latest: '最新版本',
     linuxFormat: '.AppImage / .deb',
     notes: '系统要求',
     reqMac: 'macOS 11 Big Sur 或更高版本',

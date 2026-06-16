@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <footer class="app-footer">
     <div class="footer-inner container">
       <div class="footer-top">
@@ -101,8 +101,7 @@
   </footer>
 </template>
 
-<script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { DownloadOutlined, StarFilled, MailOutlined, GithubOutlined } from '@ant-design/icons-vue'
 import { useLocale } from '@/composables/useLocale'
 import { useDownload, detectOS } from '@/composables/useDownload'

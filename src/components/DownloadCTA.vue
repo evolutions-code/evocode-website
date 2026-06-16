@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <section class="cta-section">
     <div class="container">
       <div class="cta-card reveal">
@@ -8,17 +8,56 @@
         <div class="cta-content">
           <span class="eyebrow">
             <span class="bar" />
-            <span>{{ t('cta.eyebrow') }}</span>
+            <span>{{ t("cta.eyebrow") }}</span>
           </span>
           <h2 class="cta-title">
-            {{ t('cta.title') }}
+            {{ t("cta.title") }}
           </h2>
-          <p class="cta-sub">{{ t('cta.sub') }}</p>
-          <div class="cta-actions">
-            <a href="https://github.com/evolutions-code/evocode-tauri/releases" target="_blank" rel="noopener" class="btn btn-primary">
-              <DownloadOutlined />
-              <span>{{ t('cta.download') }}</span>
+          <p class="cta-sub">{{ t("cta.sub") }}</p>
+
+          <!-- Platform download buttons — always visible -->
+          <div class="platform-btns">
+            <!-- macOS -->
+            <a
+              :href="macHref"
+              :target="macTarget"
+              :rel="macRel"
+              class="btn btn-primary"
+            >
+              <!-- Apple logo SVG -->
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+              </svg>
+              <span>{{ t("download.macos") }}</span>
+              <small class="badge">{{ t("download.format") }}</small>
             </a>
+            <!-- Windows -->
+            <a
+              :href="winHref"
+              :target="winTarget"
+              :rel="winRel"
+              class="btn btn-primary"
+            >
+              <!-- Windows logo SVG -->
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M3 5.09l7.35-.99v7.07H3V5.09zm7.35 14.81l-7.35-1V12.1h7.35v7.8zM12.7 4l8.3-1.18v8.19h-8.3V4zm8.3 17.18L12.7 20v-7.08h8.3v8.26z"/>
+              </svg>
+              <span>{{ t("download.windows") }}</span>
+              <small class="badge">.exe</small>
+            </a>
+          </div>
+
+          <!-- Version note (only once loaded) -->
+          <p class="version-note" v-if="urls.tag">
+            {{ t("download.latest") }}
+            <a
+              :href="`https://github.com/evolutions-code/evocode-tauri/releases/tag/${urls.tag}`"
+              target="_blank"
+              rel="noopener"
+            >{{ urls.tag }}</a>
+          </p>
+
+          <div class="cta-actions">
             <a
               href="https://github.com/evolutions-code/evocode"
               target="_blank"
@@ -26,7 +65,7 @@
               class="btn btn-ghost"
             >
               <StarFilled />
-              <span>{{ t('cta.github') }}</span>
+              <span>{{ t("cta.github") }}</span>
             </a>
           </div>
         </div>
@@ -36,10 +75,25 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadOutlined, StarFilled } from '@ant-design/icons-vue'
-import { useLocale } from '@/composables/useLocale'
+import { computed } from "vue"
+import { DownloadOutlined, StarFilled } from "@ant-design/icons-vue"
+import { useLocale } from "@/composables/useLocale"
+import { useDownload } from "@/composables/useDownload"
 
 const { t } = useLocale()
+const { urls, loading, error } = useDownload()
+
+const GITHUB_RELEASES = "https://github.com/evolutions-code/evocode-tauri/releases"
+
+/** macOS: direct download when available, otherwise GitHub releases */
+const macHref = computed(() => urls.value.macDmg || GITHUB_RELEASES)
+const macTarget = computed(() => urls.value.macDmg ? "_self" : "_blank")
+const macRel = computed(() => urls.value.macDmg ? "" : "noopener")
+
+/** Windows: direct download when available, otherwise GitHub releases */
+const winHref = computed(() => urls.value.winExe || urls.value.winMsi || GITHUB_RELEASES)
+const winTarget = computed(() => (urls.value.winExe || urls.value.winMsi) ? "_self" : "_blank")
+const winRel = computed(() => (urls.value.winExe || urls.value.winMsi) ? "" : "noopener")
 </script>
 
 <style scoped>
@@ -125,7 +179,9 @@ const { t } = useLocale()
   max-width: 56ch;
   line-height: 1.65;
 }
-.cta-actions {
+
+/* Platform buttons — always rendered */
+.platform-btns {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -144,6 +200,7 @@ const { t } = useLocale()
   border: 1px solid transparent;
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
+  text-decoration: none;
 }
 .btn-primary {
   background: linear-gradient(135deg, #4d7dff, #8b5cf6);
@@ -155,6 +212,15 @@ const { t } = useLocale()
   box-shadow: 0 14px 44px rgba(77, 125, 255, 0.55);
   color: #fff;
 }
+.btn-primary svg {
+  flex-shrink: 0;
+}
+.badge {
+  font-weight: 400;
+  opacity: 0.7;
+  font-size: 11px;
+  margin-left: -4px;
+}
 .btn-ghost {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--border-strong);
@@ -164,10 +230,40 @@ const { t } = useLocale()
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
+.version-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-4);
+}
+.version-note a {
+  color: var(--brand-300);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.version-note a:hover {
+  color: var(--brand-400);
+}
+
+.cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@keyframes orb {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(18px, -14px); }
+  66% { transform: translate(-12px, 18px); }
+}
 
 @media (max-width: 560px) {
   .cta-card {
     padding: 48px 24px;
+  }
+  .platform-btns {
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>
