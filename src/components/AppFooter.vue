@@ -5,17 +5,7 @@
         <div class="brand-block">
           <div class="brand-row">
             <span class="logo">
-              <svg viewBox="0 0 32 32" width="22" height="22">
-                <defs>
-                  <linearGradient id="footlogo" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#4d7dff" />
-                    <stop offset="60%" stop-color="#8b5cf6" />
-                    <stop offset="100%" stop-color="#22d3ee" />
-                  </linearGradient>
-                </defs>
-                <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#footlogo)" />
-                <path d="M11 13 L11 11 L21 11 L21 13 M11 16 L21 16 M11 19 L21 19 M11 22 L21 22" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none" />
-              </svg>
+              <img src="/logo.png" alt="evocode" width="22" height="22" />
             </span>
             <span class="brand-name">evocode</span>
           </div>
@@ -316,3 +306,4 @@ const versionDisplay = computed(() => {
   }
 }
 </style>
+
