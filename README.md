@@ -1,5 +1,7 @@
 # evocode-website
 
+[website](https://evolutions-code.github.io/evocode-website/)
+
 The official website for **evocode** — a local AI code assistant bridge.
 
 Built with **Vue 3 + Vite + Ant Design Vue**, styled as an Apple-style dark site
