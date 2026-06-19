@@ -1,16 +1,7 @@
 ﻿<template>
   <header class="app-nav" :class="{ scrolled }">
     <div class="nav-inner">
-      <router-link to="/" class="brand" @click="closeMenu">
-        <span class="logo">
-        <span class="logo">
-          <img src="/logo.png" alt="evocode" width="22" height="22" />
-        </span>
-        </span>
-        <span class="brand-text">evocode</span>
-      </router-link>
-
-      <nav class="nav-links" :class="{ open: menuOpen }">
+<nav class="nav-links" :class="{ open: menuOpen }">
         <a href="#features" @click="closeMenu">{{ t('nav.features') }}</a>
         <a href="#workflow" @click="closeMenu">{{ t('nav.workflow') }}</a>
         <a href="#tech" @click="closeMenu">{{ t('nav.technology') }}</a>
