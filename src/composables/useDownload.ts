@@ -63,7 +63,7 @@ export function detectOS(): 'mac' | 'windows' | 'linux' | 'other' {
 }
 
 export function useDownload() {
-  const urls = ref<DownloadUrls>({ tag: '', macDmg: '', macArm64Dmg: '', winExe: '', winMsi: '' })
+  const urls = ref<DownloadUrls>({ tag: '', macDmg: '', macArm64Dmg: '', winExe: '', winMsi: '', linuxAppImage: '', linuxDeb: '' })
   const loading = ref(true)
   const error = ref<string | null>(null)
   const os = ref(detectOS())
