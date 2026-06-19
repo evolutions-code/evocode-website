@@ -4,7 +4,7 @@
     <FeaturesBento />
     <WorkflowSection />
     <TechSpecsSection />
-    <DownloadCTA />
+    
   </main>
 </template>
 
@@ -13,7 +13,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import FeaturesBento from '@/components/FeaturesBento.vue'
 import WorkflowSection from '@/components/WorkflowSection.vue'
 import TechSpecsSection from '@/components/TechSpecsSection.vue'
-import DownloadCTA from '@/components/DownloadCTA.vue'
+
 </script>
 
 <style scoped>

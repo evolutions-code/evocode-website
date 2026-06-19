@@ -1,4 +1,4 @@
-﻿import { ref, onMounted, readonly } from 'vue'
+import { ref, onMounted, readonly } from 'vue'
 
 export interface DownloadUrls {
   tag: string
@@ -6,6 +6,8 @@ export interface DownloadUrls {
   macArm64Dmg: string
   winExe: string
   winMsi: string
+  linuxAppImage: string
+  linuxDeb: string
 }
 
 const GITHUB_API = 'https://api.github.com/repos/evolutions-code/evocode-tauri/releases/latest'
@@ -35,6 +37,8 @@ async function fetchLatest(): Promise<DownloadUrls> {
     macArm64Dmg: find('aarch64.dmg'),
     winExe: find('x64-setup.exe'),
     winMsi: find('x64_en-US.msi'),
+    linuxAppImage: find('.AppImage'),
+    linuxDeb: find('.deb'),
   }
 }
 
