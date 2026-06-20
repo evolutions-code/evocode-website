@@ -1,17 +1,19 @@
-export default {
+﻿export default {
   nav: {
     features: 'Features',
+    sessions: 'Sessions',
+    prompts: 'Prompts',
     workflow: 'Workflow',
     technology: 'Technology',
     github: 'GitHub',
     download: 'Download',
   },
   hero: {
-    pill: 'v0.1.25 — now with streaming tool calls',
+    pill: 'v0.1.40 — Desktop app with bridge control, prompts & session management',
     line1: 'Your AI code assistant,',
     line2: 'running entirely on your machine.',
     lede:
-      'evocode is a local bridge that wires OpenAI, Anthropic and any compatible provider into your favourite editor — with zero lock-in and millisecond latency.',
+      'evocode is a local bridge with a full desktop app that wires OpenAI, Anthropic and any compatible provider into your favourite editor — with zero lock-in, millisecond latency, and built-in session history, prompts management, and live logs.',
     ctaDownload: 'Download for desktop',
     ctaGithub: 'View on GitHub',
     previewStatus: 'running · 17761',
@@ -23,6 +25,36 @@ export default {
     sub:
       'Everything you need to ship production code with AI — minus the lock-in, the latency, and the privacy trade-offs.',
     cards: {
+      dashboard: {
+        title: 'Desktop Dashboard',
+        body:
+          'Start, stop and monitor your bridge from a native desktop app. See real-time status, connected provider, active sessions, and server URL at a glance.',
+      },
+      sessions: {
+        title: 'Session History & Search',
+        body:
+          'Browse every Codex CLI session with search and pagination. Inspect detailed entries — user messages, assistant replies, reasoning blocks, tool calls, patch diffs, and turn boundaries — all in a rich tree view.',
+      },
+      prompts: {
+        title: 'Prompt Management',
+        body:
+          'Create, edit, save, and apply prompt presets directly to Codex CLI. Full Markdown editor with live character count and one-click sync to AGENTS.md.',
+      },
+      config: {
+        title: 'Multi-Provider Configuration',
+        body:
+          'Manage unlimited AI providers with a visual UI. Configure wire protocol, API keys, models with context windows, auto-compact limits, and fetch model lists — all without editing JSON by hand.',
+      },
+      logs: {
+        title: 'Live Bridge Logs',
+        body:
+          'Monitor bridge activity in real time with auto-scrolling logs. Inspect request/response flow, and troubleshoot provider connectivity issues instantly.',
+      },
+      sync: {
+        title: 'One-Click Codex Sync',
+        body:
+          'Sync any provider, model, or prompt preset to Codex CLI with a single click. No manual config.toml editing — the bridge handles wire format translation automatically.',
+      },
       compat: {
         title: 'OpenAI-compatible protocol',
         body:
@@ -62,23 +94,32 @@ export default {
     title1: 'One local bridge.',
     title2: 'Every protocol. Zero friction.',
     sub:
-      'Codex CLI, your editor and your favourite providers — wired together in three steps, fully on your machine.',
+      'Codex CLI, your editor and your favourite providers — wired together in five steps, fully on your machine.',
     steps: [
       {
-        tag: '01',
+        tag: '01 Setup',
         title: 'Start the bridge',
-        body: 'Launch evocode and it serves a local HTTP endpoint on 127.0.0.1:17761 with no public exposure.',
+        body: 'Launch the evocode desktop app and click Start. The bridge serves a local HTTP endpoint on 127.0.0.1:17761 — no public exposure, no cloud dependency.',
       },
       {
-        tag: '02',
+        tag: '02 Configure',
+        title: 'Add your providers',
+        body: 'Use the built-in Configuration panel to add AI providers (Anthropic, OpenAI, or any Chat Completions-compatible endpoint). Set up wire protocol, API key, model list, and context window limits — all from a clean visual UI.',
+      },
+      {
+        tag: '03 Connect',
         title: 'Point Codex at it',
-        body: 'Set Codex’s base URL to the local bridge. Codex speaks Responses, the bridge translates to Chat, Anthropic or your custom wire.',
+        body: 'Set Codex CLI\'s base URL to the local bridge. Codex speaks Responses — the bridge transparently translates to Chat Completions, Anthropic Messages, or any custom wire format.',
       },
       {
-        tag: '03',
-        title: 'Sessions stay alive',
-        body:
-          'Structural session validation forces end_turn=false when tools haven’t been consumed yet — so Codex never ends the turn mid-task.',
+        tag: '04 Manage',
+        title: 'Manage prompts & sessions',
+        body: 'Create reusable prompt presets and apply them to Codex with one click. Browse session history with search and pagination, and inspect every turn, tool call, and patch diff.',
+      },
+      {
+        tag: '05 Monitor',
+        title: 'Monitor with live logs',
+        body: 'Keep an eye on bridge activity with the built-in live log viewer. Auto-scrolling output, request/response inspection, and instant troubleshooting for provider connectivity.',
       },
     ],
   },
@@ -111,21 +152,28 @@ export default {
     title1: 'Built on',
     title2: 'a modern stack.',
     sub:
-      'Tauri 2 on the shell, Rust on the bridge core, and a Vue 3 front end. Designed to feel native on every desktop OS.',
+      'A full Tauri 2 desktop shell, Rust-powered bridge core with SQLite persistence, and a Vue 3 + Ant Design Vue front end. Designed to feel native on every desktop OS.',
     specs: [
       { label: 'Frontend', value: 'Vue 3 + Vite + Ant Design Vue' },
       { label: 'Shell', value: 'Tauri 2 (Rust)' },
+      { label: 'Database', value: 'SQLite (via sqlx)' },
       { label: 'Protocol', value: 'OpenAI Responses / Chat / Anthropic' },
+      { label: 'Prompts', value: 'Markdown editor + AGENTS.md sync' },
+      { label: 'Sessions', value: 'Browse, search & detail inspection' },
+      { label: 'Logs', value: 'Real-time auto-scrolling viewer' },
       { label: 'Bridge port', value: '127.0.0.1:17761' },
+      { label: 'Config UI', value: 'Visual multi-provider editor' },
+      { label: 'Codex sync', value: 'One-click provider & model sync' },
       { label: 'Streaming', value: 'SSE with split-frame buffering' },
+      { label: 'Update', value: 'Built-in update checker' },
       { label: 'Platforms', value: 'macOS · Windows · Linux' },
     ],
   },
   cta: {
     eyebrow: 'Get started',
-    title: 'Bring the bridge home.',
+    title: 'Get the desktop app.',
     sub:
-      'Free, open source, and ready in under a minute. Available on every major desktop OS.',
+      'Free, open source, and ready in under a minute. The full desktop experience — bridge, config, prompts, logs and session history — on every major desktop OS.',
     download: 'Download for desktop',
     github: 'Star on GitHub',
   },
@@ -137,6 +185,8 @@ export default {
     contact: 'Get in touch',
     links: {
       features: 'Features',
+      sessions: 'Sessions',
+      prompts: 'Prompts',
       workflow: 'Workflow',
       technology: 'Technology',
       download: 'Download',

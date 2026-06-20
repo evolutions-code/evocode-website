@@ -14,6 +14,66 @@
       </div>
 
       <div class="bento">
+        <!-- New: Desktop Dashboard -->
+        <article class="bento-card c-wide reveal">
+          <div class="card-glow g-green"></div>
+          <div class="card-body">
+            <span class="card-icon"><DashboardOutlined /></span>
+            <h3>{{ t('features.cards.dashboard.title') }}</h3>
+            <p>{{ t('features.cards.dashboard.body') }}</p>
+          </div>
+        </article>
+
+        <!-- New: Session History -->
+        <article class="bento-card reveal">
+          <div class="card-glow g-orange"></div>
+          <div class="card-body">
+            <span class="card-icon"><HistoryOutlined /></span>
+            <h3>{{ t('features.cards.sessions.title') }}</h3>
+            <p>{{ t('features.cards.sessions.body') }}</p>
+          </div>
+        </article>
+
+        <!-- New: Prompts -->
+        <article class="bento-card reveal">
+          <div class="card-glow g-teal"></div>
+          <div class="card-body">
+            <span class="card-icon"><FileTextOutlined /></span>
+            <h3>{{ t('features.cards.prompts.title') }}</h3>
+            <p>{{ t('features.cards.prompts.body') }}</p>
+          </div>
+        </article>
+
+        <!-- New: Config -->
+        <article class="bento-card c-wide reveal">
+          <div class="card-glow g-pink"></div>
+          <div class="card-body">
+            <span class="card-icon"><SettingOutlined /></span>
+            <h3>{{ t('features.cards.config.title') }}</h3>
+            <p>{{ t('features.cards.config.body') }}</p>
+          </div>
+        </article>
+
+        <!-- New: Logs -->
+        <article class="bento-card reveal">
+          <div class="card-glow g-indigo"></div>
+          <div class="card-body">
+            <span class="card-icon"><EyeOutlined /></span>
+            <h3>{{ t('features.cards.logs.title') }}</h3>
+            <p>{{ t('features.cards.logs.body') }}</p>
+          </div>
+        </article>
+
+        <!-- New: Sync -->
+        <article class="bento-card c-wide reveal">
+          <div class="card-glow g-lime"></div>
+          <div class="card-body">
+            <span class="card-icon"><SyncOutlined /></span>
+            <h3>{{ t('features.cards.sync.title') }}</h3>
+            <p>{{ t('features.cards.sync.body') }}</p>
+          </div>
+        </article>
+
         <article class="bento-card c-wide reveal">
           <div class="card-glow g-blue"></div>
           <div class="card-body">
@@ -111,6 +171,12 @@ import {
   CheckCircleFilled,
   CodeOutlined,
   ExperimentOutlined,
+  DashboardOutlined,
+  HistoryOutlined,
+  FileTextOutlined,
+  SettingOutlined,
+  EyeOutlined,
+  SyncOutlined,
 } from '@ant-design/icons-vue'
 import { useLocale } from '@/composables/useLocale'
 
@@ -233,6 +299,24 @@ onMounted(() => {
 }
 .g-amber {
   --g: rgba(251, 191, 36, 0.25);
+}
+.g-green {
+  --g: rgba(52, 211, 153, 0.28);
+}
+.g-orange {
+  --g: rgba(251, 146, 60, 0.28);
+}
+.g-teal {
+  --g: rgba(20, 184, 166, 0.28);
+}
+.g-pink {
+  --g: rgba(236, 72, 153, 0.25);
+}
+.g-indigo {
+  --g: rgba(99, 102, 241, 0.28);
+}
+.g-lime {
+  --g: rgba(132, 204, 22, 0.25);
 }
 .card-body {
   position: relative;

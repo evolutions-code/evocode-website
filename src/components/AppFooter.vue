@@ -45,6 +45,8 @@
           <div class="link-col">
             <h5>{{ t('footer.product') }}</h5>
             <a href="#features">{{ t('footer.links.features') }}</a>
+            <a href="#features">{{ t('footer.links.sessions') }}</a>
+            <a href="#features">{{ t('footer.links.prompts') }}</a>
             <a href="#workflow">{{ t('footer.links.workflow') }}</a>
             <a href="#tech">{{ t('footer.links.technology') }}</a>
             <a

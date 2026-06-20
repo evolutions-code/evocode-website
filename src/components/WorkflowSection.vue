@@ -143,7 +143,7 @@ onMounted(() => {
 }
 .step {
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: auto 1fr;
   gap: 28px;
   align-items: stretch;
   padding: 28px;
@@ -165,13 +165,14 @@ onMounted(() => {
 .step-tag {
   display: inline-grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  min-width: 56px;
+  height: 52px;
+  padding: 0 14px;
   border-radius: 16px;
   background: linear-gradient(135deg, rgba(77, 125, 255, 0.18), rgba(139, 92, 246, 0.12));
   border: 1px solid rgba(77, 125, 255, 0.35);
   color: var(--brand-300);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   box-shadow: var(--shadow-glow);

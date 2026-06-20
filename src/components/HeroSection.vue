@@ -8,6 +8,11 @@
     <div class="grid-bg" aria-hidden="true" />
 
     <div class="hero-inner container">
+      <div class="pill reveal" ref="reveal1">
+        <span class="pulse" />
+        <span>{{ t('hero.pill') }}</span>
+        <span class="pill-arrow">→</span>
+      </div>
 
       <h1 class="display reveal" ref="reveal2">
         <span class="line">{{ t('hero.line1') }}</span>

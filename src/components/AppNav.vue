@@ -3,6 +3,8 @@
     <div class="nav-inner">
 <nav class="nav-links" :class="{ open: menuOpen }">
         <a href="#features" @click="closeMenu">{{ t('nav.features') }}</a>
+        <a href="#features" @click="closeMenu">{{ t('nav.sessions') }}</a>
+        <a href="#features" @click="closeMenu">{{ t('nav.prompts') }}</a>
         <a href="#workflow" @click="closeMenu">{{ t('nav.workflow') }}</a>
         <a href="#tech" @click="closeMenu">{{ t('nav.technology') }}</a>
       </nav>
