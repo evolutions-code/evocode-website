@@ -168,6 +168,7 @@
     contact: '联系方式',
     links: {
       features: '功能特性',
+      discord: '加入 Discord',
       sessions: '会话历史',
       prompts: '提示词',
       workflow: '工作流',

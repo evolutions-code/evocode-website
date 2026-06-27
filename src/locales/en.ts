@@ -185,6 +185,7 @@
     contact: 'Get in touch',
     links: {
       features: 'Features',
+      discord: 'Join Discord',
       sessions: 'Sessions',
       prompts: 'Prompts',
       workflow: 'Workflow',
